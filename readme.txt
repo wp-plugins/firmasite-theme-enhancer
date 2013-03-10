@@ -21,7 +21,6 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 == Screenshots ==
 
 1. Styles
-
 2. Icons
 
 == Changelog ==

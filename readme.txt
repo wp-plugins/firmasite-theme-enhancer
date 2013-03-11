@@ -10,7 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl.txt
 This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
 == Description ==
 
-This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more. You can check screenshots.
+This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more. You can check screenshots or watch this short video:
+
+http://www.youtube.com/watch?v=TB24eowl_2E
 
 Sponsored by: [FirmaSite](http://firmasite.com/)
 

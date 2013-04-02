@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.0
+Version: 1.0.1
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -19,7 +19,7 @@ __("This plugin provides new features to themes. Twitter Bootstrap design elemen
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 
-define('FIRMASITE_PLUGIN_VERSION', '1.0');
+define('FIRMASITE_PLUGIN_VERSION', '1.0.1');
 
 
 if ( !defined('FIRMASITE_PLUGIN_URL') )
@@ -27,13 +27,8 @@ if ( !defined('FIRMASITE_PLUGIN_URL') )
 if ( !defined('FIRMASITE_PLUGIN_DIR') )
 	define( 'FIRMASITE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
-
-/*global $firmasite_settings;
-if(!isset($firmasite_settings)) 
-	$firmasite_settings = get_option( "firmasite_settings" ); // site options
-*/
-
-add_action('after_setup_theme', function() {
+add_action('after_setup_theme', "firmasite_plugin_setup",11 );
+function firmasite_plugin_setup() {
 	if (!current_theme_supports('firmasite-bootstrap') || !defined('FIRMASITE_POWEREDBY') ){
 		add_action('wp_enqueue_scripts', "firmasite_plugin_enqueue_script" );
 		function firmasite_plugin_enqueue_script() {
@@ -65,7 +60,7 @@ add_action('after_setup_theme', function() {
 	
 	require_once (FIRMASITE_PLUGIN_DIR . 'functions/tinymce-buttons.php');			// Tinymce buttons
 		
-},11);
+}
 	
 
 

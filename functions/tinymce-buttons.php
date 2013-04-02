@@ -6,12 +6,14 @@ if ( ! defined( 'ABSPATH' ) )
 // Tinymce button
 add_filter('mce_external_plugins', "firmasite_firmasitebutton_register");
 function firmasite_firmasitebutton_register($plugin_array){
+	if ( ! is_admin() ) return $plugin_array;
     $plugin_array["firmasitebutton"] = FIRMASITE_PLUGIN_URL ."/assets/js/firmasite-button.js";
     $plugin_array["firmasiteicons"] = FIRMASITE_PLUGIN_URL ."/assets/js/firmasite-icons.js";
    return $plugin_array;
 } 
 add_filter('tiny_mce_before_init', 'firmasite_firmasitebutton' );
 function firmasite_firmasitebutton($init) {
+	if ( ! is_admin() ) return $init;
 	global $firmasite_settings;
 	$init['theme_advanced_buttons2_add_before'] = 'firmasitebutton,firmasiteicons'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
 	$init['body_class'] = $init['body_class'] . ' ' . $firmasite_settings["layout_page_class"];

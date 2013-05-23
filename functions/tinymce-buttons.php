@@ -7,8 +7,8 @@ if ( ! defined( 'ABSPATH' ) )
 add_filter('mce_external_plugins', "firmasite_firmasitebutton_register");
 function firmasite_firmasitebutton_register($plugin_array){
 	if ( ! is_admin() ) return $plugin_array;
-    $plugin_array["firmasitebutton"] = FIRMASITE_PLUGIN_URL ."/assets/js/firmasite-button.js";
-    $plugin_array["firmasiteicons"] = FIRMASITE_PLUGIN_URL ."/assets/js/firmasite-icons.js";
+    $plugin_array["firmasitebutton"] = FIRMASITE_PLUGIN_URL ."assets/js/firmasite-button.js";
+    $plugin_array["firmasiteicons"] = FIRMASITE_PLUGIN_URL ."assets/js/firmasite-icons.js";
    return $plugin_array;
 } 
 add_filter('tiny_mce_before_init', 'firmasite_firmasitebutton' );
@@ -22,7 +22,7 @@ function firmasite_firmasitebutton($init) {
 
 
 
-add_filter('init', "firmasite_plugin_editor_init");
+add_filter('admin_init', "firmasite_plugin_editor_init");
 function firmasite_plugin_editor_init() {
 	wp_localize_script( 'editor', 'firmasitebutton', array(
 		//'url'    => plugin_dir_url( __FILE__ ),

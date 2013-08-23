@@ -3,7 +3,7 @@ Contributors: unsalkorkmaz
 Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE
 Requires at least: 3.3
 Tested up to: 3.6
-Stable tag: 1.0.2
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -29,6 +29,9 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 2. Icons
 
 == Changelog ==
+
+= 1.1 =
+* Upgraded to Bootstrap 3.0
 
 = 1.0.2 =
 * a bugfix for WordPress 3.6 support

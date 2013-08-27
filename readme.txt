@@ -30,6 +30,9 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 
 == Changelog ==
 
+= 1.1.1 =
+* Added background & border for wp-editor (panel panel-default)
+
 = 1.1 =
 * Upgraded to Bootstrap 3.0
 

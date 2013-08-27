@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.1
+Version: 1.1.1
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -67,7 +67,7 @@ function firmasite_plugin_setup() {
 		.firmasite-modal-static .modal-body.alert{margin-bottom:0}
 
 		/* Tinymce Bootstrap Fixes for wp-admin */
-		body.mceContentBody { margin: 30px !important; }
+		body.mceContentBody{margin:10px!important;padding:10px!important}
 		</style>
         <?php
 		}

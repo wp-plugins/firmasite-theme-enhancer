@@ -17,7 +17,7 @@ function firmasite_firmasitebutton($init) {
 	if ( ! is_admin() ) return $init;
 	global $firmasite_settings;
 	$init['theme_advanced_buttons2_add_before'] = 'firmasitebutton,firmasiteicons'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
-	$init['body_class'] = $init['body_class'] . ' ' . $firmasite_settings["layout_page_class"];
+	$init['body_class'] = $init['body_class'] . ' panel panel-default ' . $firmasite_settings["layout_page_class"];
 	return $init;
 }
 

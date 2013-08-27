@@ -29,7 +29,7 @@
 }
 
 /* Tinymce Bootstrap Fixes for wp-admin */
-body.mceContentBody { margin: 30px !important; }
+body.mceContentBody{margin:10px!important;padding:10px!important}
 
 
 [class^="icon-"], [class*=" icon-"] {

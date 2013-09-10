@@ -30,7 +30,7 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 
 == Changelog ==
 
-= 1.2. =
+= 1.2 =
 * Added widget visibility from jetpack
 * Added cdn support for FirmaSite theme
 * Changed custom icons tollbar from 2 to 1

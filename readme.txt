@@ -33,7 +33,7 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 = 1.2 =
 * Added widget visibility from jetpack
 * Added cdn support for FirmaSite theme
-* Changed custom icons tollbar from 2 to 1
+* Changed custom icons toolbar from 2 to 1. Now it shows in main toolbar
 
 = 1.1 =
 * Upgraded to Bootstrap 3.0

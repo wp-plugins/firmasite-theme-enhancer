@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FirmaSite Theme Enhancer v1.0.2\n"
+"Project-Id-Version: FirmaSite Theme Enhancer v1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-08-21 18:38:35+0000\n"
+"PO-Revision-Date: 2013-09-08 20:02:17+0000\n"
 "Last-Translator: admin <unsalkorkmaz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -241,14 +241,14 @@ msgstr "Minik"
 
 #. translators: plugin header field 'Name'
 #: firmasite-plugin.php:0
-#: firmasite-plugin.php:27
+#: firmasite-plugin.php:19
 #@ firmasite-theme-enhancer
 msgid "FirmaSite Theme Enhancer"
 msgstr "FirmaSite Tema Güç Artırıcı"
 
 #. translators: plugin header field 'Description'
 #: firmasite-plugin.php:0
-#: firmasite-plugin.php:29
+#: firmasite-plugin.php:21
 #@ firmasite-theme-enhancer
 msgid "This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more.."
 msgstr "Bu eklenti temanıza yeni özellikler kazandırmaktadır. Özel tasarım elementleri, özel editör tuşları ve daha fazlası.."
@@ -271,12 +271,6 @@ msgstr ""
 msgid "http://unsalkorkmaz.com"
 msgstr ""
 
-#. translators: plugin header field 'Version'
-#: firmasite-plugin.php:0
-#@ firmasite-theme-enhancer
-msgid "1.0.2"
-msgstr ""
-
 #: theme-enhancer/functions/tinymce-buttons.php:66
 #@ firmasite-theme-enhancer
 msgid "Label (Primary)"
@@ -286,4 +280,163 @@ msgstr "Etiket (Ana Renk)"
 #@ firmasite-theme-enhancer
 msgid "Badge (Primary)"
 msgstr "Rozet (Ana renk)"
+
+#. translators: plugin header field 'Version'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "1.1"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:34
+#@ firmasite-theme-enhancer
+msgid "All category pages"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:48
+#@ firmasite-theme-enhancer
+msgid "All author pages"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:59
+#@ firmasite-theme-enhancer
+msgid "All tag pages"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:73
+#@ firmasite-theme-enhancer
+msgid "All date archives"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:74
+#@ firmasite-theme-enhancer
+msgid "Daily archives"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:75
+#@ firmasite-theme-enhancer
+msgid "Monthly archives"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:76
+#@ firmasite-theme-enhancer
+msgid "Yearly archives"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:87
+#@ firmasite-theme-enhancer
+msgid "Front page"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:88
+#@ firmasite-theme-enhancer
+msgid "Posts page"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:89
+#@ firmasite-theme-enhancer
+msgid "404 error page"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:90
+#@ firmasite-theme-enhancer
+msgid "Search results"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:91
+#@ firmasite-theme-enhancer
+msgid "Post type:"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:104
+#@ firmasite-theme-enhancer
+msgid "Static page:"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:146
+#@ firmasite-theme-enhancer
+msgid "Visibility"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:149
+#, php-format
+#@ firmasite-theme-enhancer
+msgctxt "placeholder: dropdown menu to select widget visibility; hide if or show if"
+msgid "%s if:"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:149
+#, php-format
+#@ firmasite-theme-enhancer
+msgctxt "Used in the \"%s if:\" translation for the widget visibility dropdown"
+msgid "Show"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:149
+#, php-format
+#@ firmasite-theme-enhancer
+msgctxt "Used in the \"%s if:\" translation for the widget visibility dropdown"
+msgid "Hide"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:160
+#@ firmasite-theme-enhancer
+msgctxt "Used as the default option in a dropdown list"
+msgid "-- Select --"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:161
+#@ firmasite-theme-enhancer
+msgid "Category"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:162
+#@ firmasite-theme-enhancer
+msgctxt "Noun, as in: \"The author of this post is...\""
+msgid "Author"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:163
+#@ firmasite-theme-enhancer
+msgctxt "Noun, as in: \"This post has one tag.\""
+msgid "Tag"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:164
+#@ firmasite-theme-enhancer
+msgctxt "Noun, as in: \"This page is a date archive.\""
+msgid "Date"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:165
+#@ firmasite-theme-enhancer
+msgctxt "Example: The user is looking at a page, not a post."
+msgid "Page"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:167
+#@ firmasite-theme-enhancer
+msgctxt "Widget Visibility: {Rule Major [Page]} is {Rule Minor [Search results]}"
+msgid "is"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:168
+#@ firmasite-theme-enhancer
+msgid "Loading..."
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:171
+#@ firmasite-theme-enhancer
+msgctxt "Shown between widget visibility conditions."
+msgid "or"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:174
+#@ firmasite-theme-enhancer
+msgid "Delete"
+msgstr ""
+
+#: widget-visibility/widget-conditions.php:174
+#@ firmasite-theme-enhancer
+msgid "Add"
+msgstr ""
 

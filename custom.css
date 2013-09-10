@@ -29,15 +29,4 @@
 }
 
 /* Tinymce Bootstrap Fixes for wp-admin */
-body.mceContentBody{margin:10px!important;padding:10px!important}
-
-
-[class^="icon-"], [class*=" icon-"] {
-	width: inherit;
-	height: inherit;
-	margin-top: inherit;
-	line-height: inherit;
-	vertical-align: inherit;
-	background-image: none;
-	background-position: inherit;
-}
+body.mceContentBody { margin: 30px !important; }

@@ -28,6 +28,7 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wp-blog-heade
 	<title></title>
     <?php if ( defined('FIRMASITE_POWEREDBY') ) { ?>
 	    <link type="text/css" rel="stylesheet" href="<?php echo $firmasite_settings["styles_url"][$firmasite_settings["style"]] . '/bootstrap.min.css'; ?>">
+		<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() . '/style.css'; ?>">
     <?php } else { ?>
 	    <link type="text/css" rel="stylesheet" href="<?php echo $firmasite_plugin_settings["plugin_url"] . 'bootstrap/css/bootstrap.min.css'; ?>">    
 	    <link type="text/css" rel="stylesheet" href="<?php echo $firmasite_plugin_settings["plugin_url"] . 'custom.css'; ?>">    
@@ -45,13 +46,10 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wp-blog-heade
 		padding: 0;
 		line-height: 100%;
 		}
-	[class^="icon-"], [class*=" icon-"] {
-		width:inherit;
-		height:inherit;
-	}
 	</style>  
 	<script type="text/javascript" src="<?php echo includes_url("js/tinymce/tiny_mce_popup.js"); ?>"></script>
-	<script type="text/javascript" src="<?php echo $firmasite_plugin_settings["font_url"] . $firmasite_plugin_settings["font_id"]; ?>.js"></script>
+	<script type="text/javascript" src="<?php echo $firmasite_plugin_settings["font_js_url"]; ?>"></script>
+	<?php do_action("firmasite_icons_charmap"); ?>
 	<script type="text/javascript" src="firmasite-icons-iconscharmap.js"></script>
 </head>
 <body id="iconscharmap" style="display:none" role="application">

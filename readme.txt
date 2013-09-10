@@ -1,9 +1,9 @@
 === FirmaSite Theme Enhancer ===
 Contributors: unsalkorkmaz
-Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE
-Requires at least: 3.3
+Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE, wysiwyg
+Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -30,8 +30,10 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 
 == Changelog ==
 
-= 1.1.1 =
-* Added background & border for wp-editor (panel panel-default)
+= 1.2. =
+* Added widget visibility from jetpack
+* Added cdn support for FirmaSite theme
+* Changed custom icons tollbar from 2 to 1
 
 = 1.1 =
 * Upgraded to Bootstrap 3.0

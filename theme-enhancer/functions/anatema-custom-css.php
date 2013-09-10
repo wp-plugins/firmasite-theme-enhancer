@@ -12,7 +12,7 @@ function anatema_customcss_setup(){
 				'sanitize_callback' => 'anatema_sanitize_customcss',
 			) );
 			/*$wp_customize->add_control( new Customize_CustomCss_Control( $wp_customize,'firmasite_settings[customcss]', array(
-				'label'    => __( 'Custom Css', FIRMASITE_THEME_ENHANCER ),
+				'label'    => __( 'Custom Css', "firmasite-theme-enhancer" ),
 				'type' => 'customcss',
 				'section'  => 'theme-settings',			
 				//'priority' => '3',

@@ -1,0 +1,289 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FirmaSite Theme Enhancer v1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-08-21 18:38:35+0000\n"
+"Last-Translator: admin <unsalkorkmaz@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: theme-enhancer/functions/tinymce-buttons.php:31
+#: theme-enhancer/functions/tinymce-buttons.php:97
+#@ firmasite-theme-enhancer
+msgid "Icons"
+msgstr "Simgeler"
+
+#: theme-enhancer/functions/tinymce-buttons.php:32
+#@ firmasite-theme-enhancer
+msgid "Styles"
+msgstr "Stiller"
+
+#: theme-enhancer/functions/tinymce-buttons.php:33
+#@ firmasite-theme-enhancer
+msgid "Container"
+msgstr "Kutucuk"
+
+#: theme-enhancer/functions/tinymce-buttons.php:35
+#@ firmasite-theme-enhancer
+msgid "Well Box"
+msgstr "Standard Kutucuk"
+
+#: theme-enhancer/functions/tinymce-buttons.php:36
+#@ firmasite-theme-enhancer
+msgid "Small Well Box"
+msgstr "Standard Kutucuk (Küçük)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:37
+#@ firmasite-theme-enhancer
+msgid "Standard Well Box"
+msgstr "Standard Kutucuk (Normal)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:38
+#@ firmasite-theme-enhancer
+msgid "Large Well Box"
+msgstr "Standard Kutucuk (Büyük)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:40
+#@ firmasite-theme-enhancer
+msgid "Message Box"
+msgstr "Mesaj Kutuçukları"
+
+#: theme-enhancer/functions/tinymce-buttons.php:41
+#@ firmasite-theme-enhancer
+msgid "Alert Box"
+msgstr "Uyarı Kutucuğu"
+
+#: theme-enhancer/functions/tinymce-buttons.php:42
+#@ firmasite-theme-enhancer
+msgid "Alert Box (Danger)"
+msgstr "Uyarı Kutucuğu (Tehlike)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:43
+#@ firmasite-theme-enhancer
+msgid "Alert Box (Success)"
+msgstr "Uyarı Kutucuğu (Başarı)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:44
+#@ firmasite-theme-enhancer
+msgid "Alert Box (Information)"
+msgstr "Uyarı Kutucuğu (Bilgi)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:46
+#@ firmasite-theme-enhancer
+msgid "Modal Box"
+msgstr "Model Kutucuk"
+
+#: theme-enhancer/functions/tinymce-buttons.php:47
+#@ firmasite-theme-enhancer
+msgid "Modal Box (Header)"
+msgstr "Model Kutucuk (Başlık)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:48
+#@ firmasite-theme-enhancer
+msgid "Modal Box (Body)"
+msgstr "Model Kutucuk (Gövde)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:49
+#@ firmasite-theme-enhancer
+msgid "Modal Box (Footer)"
+msgstr "Model Kutucuk (Altlık)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:51
+#@ firmasite-theme-enhancer
+msgid "Text Styles"
+msgstr "Yazı Stilleri"
+
+#: theme-enhancer/functions/tinymce-buttons.php:53
+#@ firmasite-theme-enhancer
+msgid "Text Color"
+msgstr "Yazı Rengi"
+
+#: theme-enhancer/functions/tinymce-buttons.php:54
+#@ firmasite-theme-enhancer
+msgid "Muted"
+msgstr "Sessiz"
+
+#: theme-enhancer/functions/tinymce-buttons.php:55
+#: theme-enhancer/functions/tinymce-buttons.php:81
+#@ firmasite-theme-enhancer
+msgid "Alert"
+msgstr "Uyarı"
+
+#: theme-enhancer/functions/tinymce-buttons.php:56
+#: theme-enhancer/functions/tinymce-buttons.php:82
+#@ firmasite-theme-enhancer
+msgid "Danger"
+msgstr "Tehlike"
+
+#: theme-enhancer/functions/tinymce-buttons.php:57
+#: theme-enhancer/functions/tinymce-buttons.php:83
+#@ firmasite-theme-enhancer
+msgid "Success"
+msgstr "Başarı"
+
+#: theme-enhancer/functions/tinymce-buttons.php:58
+#: theme-enhancer/functions/tinymce-buttons.php:84
+#@ firmasite-theme-enhancer
+msgid "Information"
+msgstr "Bilgi"
+
+#: theme-enhancer/functions/tinymce-buttons.php:60
+#: theme-enhancer/functions/tinymce-buttons.php:61
+#@ firmasite-theme-enhancer
+msgid "Label"
+msgstr "Etiket"
+
+#: theme-enhancer/functions/tinymce-buttons.php:62
+#@ firmasite-theme-enhancer
+msgid "Label (Warning)"
+msgstr "Etiket (Uyarı)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:63
+#@ firmasite-theme-enhancer
+msgid "Label (Important)"
+msgstr "Etiket (Önemli)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:64
+#@ firmasite-theme-enhancer
+msgid "Label (Success)"
+msgstr "Etiket (Başarı)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:65
+#@ firmasite-theme-enhancer
+msgid "Label (Info)"
+msgstr "Etiket (Bilgi)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:68
+#: theme-enhancer/functions/tinymce-buttons.php:69
+#@ firmasite-theme-enhancer
+msgid "Badge"
+msgstr "Rozet"
+
+#: theme-enhancer/functions/tinymce-buttons.php:70
+#@ firmasite-theme-enhancer
+msgid "Badge (Warning)"
+msgstr "Rozet (Uyarı)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:71
+#@ firmasite-theme-enhancer
+msgid "Badge (Important)"
+msgstr "Rozet (Önemli)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:72
+#@ firmasite-theme-enhancer
+msgid "Badge (Success)"
+msgstr "Rozet (Başarı)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:73
+#@ firmasite-theme-enhancer
+msgid "Badge (Info)"
+msgstr "Rozet (Bilgi)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:76
+#@ firmasite-theme-enhancer
+msgid "Link to Button"
+msgstr "Düğme"
+
+#: theme-enhancer/functions/tinymce-buttons.php:78
+#@ firmasite-theme-enhancer
+msgid "Button Color"
+msgstr "Düğme Rengi"
+
+#: theme-enhancer/functions/tinymce-buttons.php:79
+#: theme-enhancer/functions/tinymce-buttons.php:90
+#@ firmasite-theme-enhancer
+msgid "Standard"
+msgstr "Normal"
+
+#: theme-enhancer/functions/tinymce-buttons.php:80
+#: theme-enhancer/functions/tinymce-buttons.php:85
+#@ firmasite-theme-enhancer
+msgid "Primary"
+msgstr "Birincil"
+
+#: theme-enhancer/functions/tinymce-buttons.php:87
+#@ firmasite-theme-enhancer
+msgid "Button Size"
+msgstr "Düğme Boyutu"
+
+#: theme-enhancer/functions/tinymce-buttons.php:88
+#@ firmasite-theme-enhancer
+msgid "Block"
+msgstr "Tam Satır"
+
+#: theme-enhancer/functions/tinymce-buttons.php:89
+#@ firmasite-theme-enhancer
+msgid "Large"
+msgstr "Büyük"
+
+#: theme-enhancer/functions/tinymce-buttons.php:91
+#@ firmasite-theme-enhancer
+msgid "Small"
+msgstr "Küçük"
+
+#: theme-enhancer/functions/tinymce-buttons.php:92
+#@ firmasite-theme-enhancer
+msgid "Mini"
+msgstr "Minik"
+
+#. translators: plugin header field 'Name'
+#: firmasite-plugin.php:0
+#: firmasite-plugin.php:27
+#@ firmasite-theme-enhancer
+msgid "FirmaSite Theme Enhancer"
+msgstr "FirmaSite Tema Güç Artırıcı"
+
+#. translators: plugin header field 'Description'
+#: firmasite-plugin.php:0
+#: firmasite-plugin.php:29
+#@ firmasite-theme-enhancer
+msgid "This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more.."
+msgstr "Bu eklenti temanıza yeni özellikler kazandırmaktadır. Özel tasarım elementleri, özel editör tuşları ve daha fazlası.."
+
+#. translators: plugin header field 'PluginURI'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "http://firmasite.com"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "Ünsal Korkmaz"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "http://unsalkorkmaz.com"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "1.0.2"
+msgstr ""
+
+#: theme-enhancer/functions/tinymce-buttons.php:66
+#@ firmasite-theme-enhancer
+msgid "Label (Primary)"
+msgstr "Etiket (Ana Renk)"
+
+#: theme-enhancer/functions/tinymce-buttons.php:74
+#@ firmasite-theme-enhancer
+msgid "Badge (Primary)"
+msgstr "Rozet (Ana renk)"
+

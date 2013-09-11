@@ -46,6 +46,9 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wp-blog-heade
 		padding: 0;
 		line-height: 100%;
 		}
+	a:link, a:visited {
+	color: inherit !important;
+	}	
 	</style>  
 	<script type="text/javascript" src="<?php echo includes_url("js/tinymce/tiny_mce_popup.js"); ?>"></script>
 	<script type="text/javascript" src="<?php echo $firmasite_plugin_settings["font_js_url"]; ?>"></script>

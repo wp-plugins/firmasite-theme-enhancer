@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.2.2
+Version: 1.2.3
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -147,7 +147,7 @@ function firmasite_plugin_setup() {
 
 
 // Load translations
-add_action('plugins_loaded', "firmasite_plugin_language_init");
+add_action('plugins_loaded', "firmasite_plugin_language_init",999);
 function firmasite_plugin_language_init() {
 	/*
 	 * widget-conditions from Jetpack
@@ -158,7 +158,7 @@ function firmasite_plugin_language_init() {
 	 * "firmasite-theme-enhancer"
 	 *
 	 */	
-	if ( ! class_exists( 'Jetpack_Widget_Conditions' ) ) 
+	if ( ! class_exists( 'Jetpack' ) ) 
 		include_once ('widget-visibility/widget-conditions.php');			
 
 	global $firmasite_plugin_settings;

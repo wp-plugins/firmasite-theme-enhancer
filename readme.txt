@@ -3,7 +3,7 @@ Contributors: unsalkorkmaz
 Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE, wysiwyg
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -29,6 +29,9 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 2. Icons
 
 == Changelog ==
+
+= 1.2.1 =
+* fixed jetpack conflict
 
 = 1.2 =
 * Added widget visibility from jetpack

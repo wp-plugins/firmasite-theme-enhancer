@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.2.1
+Version: 1.2.2
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -53,7 +53,7 @@ function firmasite_plugin_setup() {
 		$firmasite_settings["thumbnail_url"] = $firmasite_settings["styles_url"];
 		
 		// bootstrapcdn.com
-		$firmasite_settings["styles_url"] = array(		
+		$firmasite_settings["styles_url"] = apply_filters( 'firmasite_theme_styles_url', array(		
 			"default" => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css",		//0
 			"amelia" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia",		//1
 			"cerulean" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/cerulean",	//2
@@ -66,7 +66,7 @@ function firmasite_plugin_setup() {
 			"slate" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate",			//8
 			"spacelab" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab",	//9
 			"united" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/united",		//12
-		);
+		));
 		
 		//jquery
 		wp_deregister_script( 'jquery-core' );

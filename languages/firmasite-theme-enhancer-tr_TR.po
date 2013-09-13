@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FirmaSite Theme Enhancer v1.1\n"
+"Project-Id-Version: FirmaSite Theme Enhancer v1.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-09-08 20:02:17+0000\n"
+"PO-Revision-Date: 2013-09-13 23:16:32+0000\n"
 "Last-Translator: admin <unsalkorkmaz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,7 @@ msgstr "Düğme Boyutu"
 msgid "Block"
 msgstr "Tam Satır"
 
+#: simple-image-widget/simple-image-widget.php:179
 #: theme-enhancer/functions/tinymce-buttons.php:89
 #@ firmasite-theme-enhancer
 msgid "Large"
@@ -280,12 +281,6 @@ msgstr "Etiket (Ana Renk)"
 #@ firmasite-theme-enhancer
 msgid "Badge (Primary)"
 msgstr "Rozet (Ana renk)"
-
-#. translators: plugin header field 'Version'
-#: firmasite-plugin.php:0
-#@ firmasite-theme-enhancer
-msgid "1.1"
-msgstr ""
 
 #: widget-visibility/widget-conditions.php:34
 #@ firmasite-theme-enhancer
@@ -438,5 +433,149 @@ msgstr ""
 #: widget-visibility/widget-conditions.php:174
 #@ firmasite-theme-enhancer
 msgid "Add"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: firmasite-plugin.php:0
+#@ firmasite-theme-enhancer
+msgid "1.2.3"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:20
+#@ firmasite-theme-enhancer
+msgid "Image"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:24
+#@ firmasite-theme-enhancer
+msgid "Display an image"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:180
+#@ firmasite-theme-enhancer
+msgid "Title:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:186
+#@ firmasite-theme-enhancer
+msgid "Choose an Image for the Widget"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:187
+#@ firmasite-theme-enhancer
+msgid "Update Image"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:196
+#@ firmasite-theme-enhancer
+msgid "Choose an Image"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:204
+#@ firmasite-theme-enhancer
+msgid "These fields are here to maintain your data from an earlier version."
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:207
+#@ firmasite-theme-enhancer
+msgid "Select an image, then clear these values, and they will disappear when you save the widget."
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:212
+#@ firmasite-theme-enhancer
+msgid "Image URL:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:216
+#@ firmasite-theme-enhancer
+msgid "Alternate Text:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:230
+#@ firmasite-theme-enhancer
+msgid "Size:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:249
+#@ firmasite-theme-enhancer
+msgid "Link:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:255
+#@ firmasite-theme-enhancer
+msgid "Open in new window?"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:264
+#@ firmasite-theme-enhancer
+msgid "Link Text:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:273
+#@ firmasite-theme-enhancer
+msgid "Text:"
+msgstr ""
+
+#: simple-image-widget/class-simple-image-widget.php:352
+#: simple-image-widget/simple-image-widget.php:79
+#: simple-image-widget/simple-image-widget.php:180
+#@ firmasite-theme-enhancer
+msgid "Full Size"
+msgstr ""
+
+#. translators: plugin header field 'Name'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "Simple Image Widget"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "https://wordpress.org/extend/plugins/simple-image-widget/"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "A simple image widget utilizing the new WordPress media manager."
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "Blazer Six"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "http://www.blazersix.com/"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: simple-image-widget/simple-image-widget.php:0
+#@ firmasite-theme-enhancer
+msgid "3.0.4"
+msgstr ""
+
+#: simple-image-widget/simple-image-widget.php:77
+#@ firmasite-theme-enhancer
+msgid "Choose an Attachment"
+msgstr ""
+
+#: simple-image-widget/simple-image-widget.php:78
+#@ firmasite-theme-enhancer
+msgid "Update Attachment"
+msgstr ""
+
+#: simple-image-widget/simple-image-widget.php:177
+#@ firmasite-theme-enhancer
+msgid "Thumbnail"
+msgstr ""
+
+#: simple-image-widget/simple-image-widget.php:178
+#@ firmasite-theme-enhancer
+msgid "Medium"
 msgstr ""
 

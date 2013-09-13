@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.2.3
+Version: 1.2.4
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -128,6 +128,16 @@ function firmasite_plugin_setup() {
 		
 			return $mce_css;
 		}
+		
+		// Register css for customizer panel
+		add_action( 'customize_controls_print_styles', "firmasite_plugin_customize_controls_font" );
+		function firmasite_plugin_customize_controls_font( $mce_css ) {
+			global $firmasite_plugin_settings;
+
+			wp_register_style( 'firmasite_plugin_fontcss', $firmasite_plugin_settings["font_css_url"] );
+			wp_enqueue_style( 'firmasite_plugin_fontcss' );
+		}
+
 			
 	}
 	
@@ -143,6 +153,17 @@ function firmasite_plugin_setup() {
 }
 
 
+/*
+ * Simple Image Widget from https://github.com/blazersix/simple-image-widget
+ *
+ * replaced:
+'simple-image-widget'
+ * to
+"firmasite-theme-enhancer"
+ * for language support
+ */
+if ( ! class_exists( 'Simple_Image_Widget' ) ) 
+	include_once ('simple-image-widget/simple-image-widget.php');			
 	
 
 
@@ -159,7 +180,7 @@ function firmasite_plugin_language_init() {
 	 *
 	 */	
 	if ( ! class_exists( 'Jetpack' ) ) 
-		include_once ('widget-visibility/widget-conditions.php');			
+		include_once ('widget-visibility/widget-conditions.php');	
 
 	global $firmasite_plugin_settings;
 	load_plugin_textdomain( 'firmasite-theme-enhancer', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );	

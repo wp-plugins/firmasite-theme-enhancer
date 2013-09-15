@@ -27,7 +27,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'class-simple-image-widget.php' );
  *
  * @since 3.0.0
  */
-class Simple_Image_Widget_Loader {
+class FirmaSite_Simple_Image_Widget_Loader {
 	/**
 	 * Setup functionality needed by the widget.
 	 *
@@ -37,7 +37,7 @@ class Simple_Image_Widget_Loader {
 		add_action( 'init', array( __CLASS__, 'load_textdomain' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
 
-		if ( is_simple_image_widget_legacy() ) {
+		if ( is_FirmaSite_Simple_Image_Widget_legacy() ) {
 			return;
 		}
 
@@ -87,7 +87,7 @@ class Simple_Image_Widget_Loader {
 	 * @since 3.0.0
 	 */
 	public static function register_widget() {
-		register_widget( 'Simple_Image_Widget' );
+		register_widget( 'FirmaSite_Simple_Image_Widget' );
 	}
 
 	/**
@@ -181,11 +181,11 @@ class Simple_Image_Widget_Loader {
 		) );
 	}
 }
-add_action( 'plugins_loaded', array( 'Simple_Image_Widget_Loader', 'load' ) );
+add_action( 'plugins_loaded', array( 'FirmaSite_Simple_Image_Widget_Loader', 'load' ) );
 
 /**
  * Check to see if the current version of WordPress supports the new media manager.
  */
-function is_simple_image_widget_legacy() {
+function is_FirmaSite_Simple_Image_Widget_legacy() {
 	return version_compare( get_bloginfo( 'version' ), '3.4.2', '<=' );
 }

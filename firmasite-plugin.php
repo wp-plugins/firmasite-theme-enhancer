@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.2.4
+Version: 1.2.5
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -153,22 +153,11 @@ function firmasite_plugin_setup() {
 }
 
 
-/*
- * Simple Image Widget from https://github.com/blazersix/simple-image-widget
- *
- * replaced:
-'simple-image-widget'
- * to
-"firmasite-theme-enhancer"
- * for language support
- */
-if ( ! class_exists( 'Simple_Image_Widget' ) ) 
-	include_once ('simple-image-widget/simple-image-widget.php');			
 	
 
 
 // Load translations
-add_action('plugins_loaded', "firmasite_plugin_language_init",999);
+add_action('plugins_loaded', "firmasite_plugin_language_init",900);
 function firmasite_plugin_language_init() {
 	/*
 	 * widget-conditions from Jetpack
@@ -180,7 +169,24 @@ function firmasite_plugin_language_init() {
 	 *
 	 */	
 	if ( ! class_exists( 'Jetpack' ) ) 
-		include_once ('widget-visibility/widget-conditions.php');	
+		include_once ('widget-visibility/widget-conditions.php');
+		
+		
+	/*
+	 * Simple Image Widget from https://github.com/blazersix/simple-image-widget
+	 *
+	 * replaced:
+	'simple-image-widget'
+	"firmasite-theme-enhancer"
+
+	 Simple_Image_Widget
+	 FirmaSite_Simple_Image_Widget
+	 */
+	if ( !class_exists( 'Simple_Image_Widget' ) ) {
+		include_once ('simple-image-widget/simple-image-widget.php');			
+		add_action( 'plugins_loaded', array( 'FirmaSite_Simple_Image_Widget_Loader', 'load' ),901 );
+	}
+		
 
 	global $firmasite_plugin_settings;
 	load_plugin_textdomain( 'firmasite-theme-enhancer', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );	

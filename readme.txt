@@ -1,9 +1,9 @@
 === FirmaSite Theme Enhancer ===
 Contributors: unsalkorkmaz
-Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE, wysiwyg
-Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.2.5
+Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE, wysiwyg, widget
+Requires at least: 3.9
+Tested up to: 4.0
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -17,7 +17,11 @@ You can find detailed information, showcase, live demo, tips and tricks about th
 You can check screenshots or watch this short video:
 http://www.youtube.com/watch?v=TB24eowl_2E
 
-Sponsored by: [FirmaSite](http://firmasite.com/)
+This plugin included some features from other authors:
+* [Simple Image Widget](https://github.com/blazersix/simple-image-widget).
+* [Widget Visibility](http://jetpack.me/support/widget-visibility/).
+
+Thanks everyone for using, testing and reporting problems.
 
 == Installation ==
 
@@ -29,6 +33,10 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 2. Icons
 
 == Changelog ==
+
+= 1.3.0 =
+* Rewrote wysiwyg buttons for WordPress 3.9's new api
+* Updated necessary codes
 
 = 1.2.5 =
 * Fixed simple-image-widget conflict

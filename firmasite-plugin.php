@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.2.5
+Version: 1.3.0
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -45,7 +45,7 @@ function firmasite_plugin_setup() {
 	/*
 	 * FIRMASITE_CDN MODE
 	 */
-	if ( FIRMASITE_CDN && defined('FIRMASITE_POWEREDBY') ) {
+	if ( defined('FIRMASITE_CDN') && FIRMASITE_CDN && defined('FIRMASITE_POWEREDBY') ) {
 		// Font awesome
 		$firmasite_plugin_settings["font_css_url"] = "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css?ver=3.6";
 			
@@ -54,23 +54,29 @@ function firmasite_plugin_setup() {
 		
 		// bootstrapcdn.com
 		$firmasite_settings["styles_url"] = apply_filters( 'firmasite_theme_styles_url', array(		
-			"default" => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css",		//0
-			"amelia" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia",		//1
-			"cerulean" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/cerulean",	//2
-			"cosmo" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo",			//3
-			"cyborg" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg",		//4
-			"flatly" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly",		//13
-			"journal" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal",		//5
-			"readable" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable",	//6
-			"simplex" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex",		//7
-			"slate" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate",			//8
-			"spacelab" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab",	//9
-			"united" => "//netdna.bootstrapcdn.com/bootswatch/3.0.0/united",		//12
+			"amelia" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/amelia",		
+			"cerulean" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cerulean",	
+			"cosmo" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo",			
+			"cyborg" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cyborg",		
+			"darkly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/darkly",		
+			"default" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/default",		
+			"flatly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly",		
+			"journal" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/journal",		
+			"lumen" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/lumen",		
+			"paper" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/paper",		
+			"readable" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/readable",	
+			"sandstone" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone",	
+			"simplex" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex",		
+			"slate" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate",			
+			"spacelab" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/spacelab",	
+			"superhero" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero",	
+			"united" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/united",		
+			"yeti" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti",		
 		));
 		
 		//jquery
 		wp_deregister_script( 'jquery-core' );
-		wp_register_script( 'jquery-core', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), '1.10.2');
+		wp_register_script( 'jquery-core', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1');
 		wp_deregister_script( 'jquery-migrate' );
 		wp_register_script( 'jquery-migrate', 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', array(), '1.2.1');
 	}	
@@ -163,28 +169,41 @@ function firmasite_plugin_language_init() {
 	 * widget-conditions from Jetpack
 	 *
 	 * replaced:
-	 * 'jetpack'
+	 'jetpack'
 	 * to
-	 * "firmasite-theme-enhancer"
+	 "firmasite-theme-enhancer"
 	 *
+	 * replaced:
+	 Jetpack
+	 * to
+	 FirmaSite
 	 */	
 	if ( ! class_exists( 'Jetpack' ) ) 
 		include_once ('widget-visibility/widget-conditions.php');
-		
+
 		
 	/*
 	 * Simple Image Widget from https://github.com/blazersix/simple-image-widget
 	 *
+	 * open simple-image-widget.php
+	 * remove plugin definition lines from top for prevent plugin scans like codestyling-localization
+	 *
+	 * remove line:
+	 load_plugin_textdomain
+	 *
 	 * replaced:
 	'simple-image-widget'
+	 * to
 	"firmasite-theme-enhancer"
 
+	 * replaced:
 	 Simple_Image_Widget
+	 * to
 	 FirmaSite_Simple_Image_Widget
 	 */
 	if ( !class_exists( 'Simple_Image_Widget' ) ) {
 		include_once ('simple-image-widget/simple-image-widget.php');			
-		add_action( 'plugins_loaded', array( 'FirmaSite_Simple_Image_Widget_Loader', 'load' ),901 );
+		add_action( 'plugins_loaded', array( $FirmaSite_Simple_Image_Widget, 'load' ), 901 );
 	}
 		
 

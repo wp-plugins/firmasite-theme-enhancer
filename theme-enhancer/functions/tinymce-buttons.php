@@ -12,11 +12,16 @@ function firmasite_firmasitebutton_register($plugin_array){
     $plugin_array["firmasiteicons"] = $firmasite_plugin_settings["url"] . "assets/js/firmasite-icons.js";
    return $plugin_array;
 } 
+add_filter('mce_buttons', "firmasite_firmasitemce_buttons");
+function firmasite_firmasitemce_buttons($buttons){
+	if ( ! is_admin() ) return $buttons;
+	array_unshift($buttons, "firmasitebutton","firmasiteicons");
+	return $buttons;
+} 
 add_filter('tiny_mce_before_init', 'firmasite_firmasitebutton' );
 function firmasite_firmasitebutton($init) {
 	if ( ! is_admin() ) return $init;
 	global $firmasite_settings;
-	$init['theme_advanced_buttons1_add_before'] = 'firmasitebutton,firmasiteicons'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
 	$init['body_class'] = $init['body_class'] . ' panel panel-default ' . $firmasite_settings["layout_page_class"];
 	return $init;
 }

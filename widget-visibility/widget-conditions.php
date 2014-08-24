@@ -5,7 +5,7 @@
  * Hide or show widgets conditionally.
  */
 
-class Jetpack_Widget_Conditions {
+class FirmaSite_Widget_Conditions {
 	public static function init() {
 		if ( is_admin() ) {
 			add_action( 'sidebar_admin_setup', array( __CLASS__, 'widget_admin_setup' ) );
@@ -14,14 +14,19 @@ class Jetpack_Widget_Conditions {
 			add_action( 'wp_ajax_widget_conditions_options', array( __CLASS__, 'widget_conditions_options' ) );
 		}
 		else {
-			add_action( 'widget_display_callback', array( __CLASS__, 'filter_widget' ) );
-			add_action( 'sidebars_widgets', array( __CLASS__, 'sidebars_widgets' ) );
+			add_filter( 'widget_display_callback', array( __CLASS__, 'filter_widget' ) );
+			add_filter( 'sidebars_widgets', array( __CLASS__, 'sidebars_widgets' ) );
 		}
 	}
 
 	public static function widget_admin_setup() {
+		if( is_rtl() ) {
+			wp_enqueue_style( 'widget-conditions', plugins_url( 'widget-conditions/rtl/widget-conditions-rtl.css', __FILE__ ) );
+		} else {
+			wp_enqueue_style( 'widget-conditions', plugins_url( 'widget-conditions/widget-conditions.css', __FILE__ ) );	
+		}
 		wp_enqueue_style( 'widget-conditions', plugins_url( 'widget-conditions/widget-conditions.css', __FILE__ ) );
-		wp_enqueue_script( 'widget-conditions', plugins_url( 'widget-conditions/widget-conditions.js', __FILE__ ), array( 'jquery', 'jquery-ui-core' ), 20130129, true );
+		wp_enqueue_script( 'widget-conditions', plugins_url( 'widget-conditions/widget-conditions.js', __FILE__ ), array( 'jquery', 'jquery-ui-core' ), 20140721, true );
 	}
 
 	/**
@@ -86,6 +91,7 @@ class Jetpack_Widget_Conditions {
 				?>
 				<option value="front" <?php selected( 'front', $minor ); ?>><?php _e( 'Front page', "firmasite-theme-enhancer" ); ?></option>
 				<option value="posts" <?php selected( 'posts', $minor ); ?>><?php _e( 'Posts page', "firmasite-theme-enhancer" ); ?></option>
+				<option value="archive" <?php selected( 'archive', $minor ); ?>><?php _e( 'Archive page', "firmasite-theme-enhancer" ); ?></option>
 				<option value="404" <?php selected( '404', $minor ); ?>><?php _e( '404 error page', "firmasite-theme-enhancer" ); ?></option>
 				<option value="search" <?php selected( 'search', $minor ); ?>><?php _e( 'Search results', "firmasite-theme-enhancer" ); ?></option>
 				<optgroup label="<?php esc_attr_e( 'Post type:', "firmasite-theme-enhancer" ); ?>">
@@ -109,6 +115,32 @@ class Jetpack_Widget_Conditions {
 					?>
 				</optgroup>
 				<?php
+			break;
+			case 'taxonomy':
+				?>
+				<option value=""><?php _e( 'All taxonomy pages', "firmasite-theme-enhancer" ); ?></option>
+				<?php
+
+				$taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
+				usort( $taxonomies, array( __CLASS__, 'strcasecmp_name' ) );
+
+				foreach ( $taxonomies as $taxonomy ) {
+					?>
+					<optgroup label="<?php esc_attr_e( $taxonomy->labels->name . ':', "firmasite-theme-enhancer" ); ?>">
+						<option value="<?php echo esc_attr( $taxonomy->name ); ?>" <?php selected( $taxonomy->name, $minor ); ?>><?php echo 'All ' . esc_html( $taxonomy->name ) . ' pages'; ?></option>
+					<?php
+
+					$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
+					foreach ( $terms as $term ) {
+						?>
+						<option value="<?php echo esc_attr( $taxonomy->name . '_tax_' . $term->term_id ); ?>" <?php selected( $taxonomy->name . '_tax_' . $term->term_id, $minor ); ?>><?php echo esc_html( $term->name ); ?></option>
+						<?php
+					}
+
+					?>
+				</optgroup>
+				<?php
+				}
 			break;
 		}
 	}
@@ -155,7 +187,7 @@ class Jetpack_Widget_Conditions {
 					foreach ( $conditions['rules'] as $rule ) {
 						?>
 						<div class="condition">
-							<div class="alignleft">
+							<div class="selection alignleft">
 								<select class="conditions-rule-major" name="conditions[rules_major][]">
 									<option value="" <?php selected( "", $rule['major'] ); ?>><?php echo esc_html_x( '-- Select --', 'Used as the default option in a dropdown list', "firmasite-theme-enhancer" ); ?></option>
 									<option value="category" <?php selected( "category", $rule['major'] ); ?>><?php esc_html_e( 'Category', "firmasite-theme-enhancer" ); ?></option>
@@ -163,17 +195,23 @@ class Jetpack_Widget_Conditions {
 									<option value="tag" <?php selected( "tag", $rule['major'] ); ?>><?php echo esc_html_x( 'Tag', 'Noun, as in: "This post has one tag."', "firmasite-theme-enhancer" ); ?></option>
 									<option value="date" <?php selected( "date", $rule['major'] ); ?>><?php echo esc_html_x( 'Date', 'Noun, as in: "This page is a date archive."', "firmasite-theme-enhancer" ); ?></option>
 									<option value="page" <?php selected( "page", $rule['major'] ); ?>><?php echo esc_html_x( 'Page', 'Example: The user is looking at a page, not a post.', "firmasite-theme-enhancer" ); ?></option>
+									<?php if ( get_taxonomies( array( '_builtin' => false ) ) ) : ?>
+									<option value="taxonomy" <?php selected( "taxonomy", $rule['major'] ); ?>><?php echo esc_html_x( 'Taxonomy', 'Noun, as in: "This post has one taxonomy."', "firmasite-theme-enhancer" ); ?></option>
+									<?php endif; ?>
 								</select>
 								<?php _ex( 'is', 'Widget Visibility: {Rule Major [Page]} is {Rule Minor [Search results]}', "firmasite-theme-enhancer" ); ?>
 								<select class="conditions-rule-minor" name="conditions[rules_minor][]" <?php if ( ! $rule['major'] ) { ?> disabled="disabled"<?php } ?> data-loading-text="<?php esc_attr_e( 'Loading...', "firmasite-theme-enhancer" ); ?>">
 									<?php self::widget_conditions_options_echo( $rule['major'], $rule['minor'] ); ?>
 								</select>
-								<span class="condition-conjunction"><?php echo esc_html_x( 'or', 'Shown between widget visibility conditions.', "firmasite-theme-enhancer" ); ?></span>
+								
 							</div>
-							<div class="condition-control alignright">
+							<div class="condition-control">
+							 <span class="condition-conjunction"><?php echo esc_html_x( 'or', 'Shown between widget visibility conditions.', "firmasite-theme-enhancer" ); ?></span>
+							 <div class="actions alignright">
 								<a href="#" class="delete-condition"><?php esc_html_e( 'Delete', "firmasite-theme-enhancer" ); ?></a> | <a href="#" class="add-condition"><?php esc_html_e( 'Add', "firmasite-theme-enhancer" ); ?></a>
+							 </div>
 							</div>
-							<br class="clear" />
+							
 						</div><!-- .condition -->
 						<?php
 					}
@@ -248,14 +286,29 @@ class Jetpack_Widget_Conditions {
 
 			foreach ( $widgets as $position => $widget_id ) {
 				// Find the conditions for this widget.
-				list( $basename, $suffix ) = explode( "-", $widget_id, 2 );
+				if ( preg_match( '/^(.+?)-(\d+)$/', $widget_id, $matches ) ) {
+					$id_base = $matches[1];
+					$widget_number = intval( $matches[2] );
+				}
+				else {
+					$id_base = $widget_id;
+					$widget_number = null;
+				}
 
-				if ( ! isset( $settings[$basename] ) )
-					$settings[$basename] = get_option( 'widget_' . $basename );
+				if ( ! isset( $settings[$id_base] ) ) {
+					$settings[$id_base] = get_option( 'widget_' . $id_base );
+				}
 
-				if ( isset( $settings[$basename][$suffix] ) ) {
-					if ( false === self::filter_widget( $settings[$basename][$suffix] ) )
+				// New multi widget (WP_Widget)
+				if ( ! is_null( $widget_number ) ) {
+					if ( isset( $settings[$id_base][$widget_number] ) && false === self::filter_widget( $settings[$id_base][$widget_number] ) ) {
 						unset( $widget_areas[$widget_area][$position] );
+					}
+				}
+
+				// Old single widget
+				else if ( ! empty( $settings[ $id_base ] ) && false === self::filter_widget( $settings[$id_base] ) ) {
+					unset( $widget_areas[$widget_area][$position] );
 				}
 			}
 		}
@@ -319,7 +372,11 @@ class Jetpack_Widget_Conditions {
 							$condition_result = is_home();
 						break;
 						case 'front':
-							$condition_result = is_front_page();
+							if ( current_theme_supports( 'infinite-scroll' ) )
+								$condition_result = is_front_page();
+							else {
+								$condition_result = is_front_page() && !is_paged();
+							}
 						break;
 						default:
 							if ( substr( $rule['minor'], 0, 10 ) == 'post_type-' )
@@ -348,7 +405,7 @@ class Jetpack_Widget_Conditions {
 						$condition_result = true;
 					else if ( is_category( $rule['minor'] ) )
 						$condition_result = true;
-					else if ( is_singular() && $rule['minor'] && has_category( $rule['minor'] ) )
+					else if ( is_singular() && $rule['minor'] && in_array( 'category', get_post_taxonomies() ) &&  has_category( $rule['minor'] ) )
 						$condition_result = true;
 				break;
 				case 'author':
@@ -357,6 +414,16 @@ class Jetpack_Widget_Conditions {
 					else if ( $rule['minor'] && is_author( $rule['minor'] ) )
 						$condition_result = true;
 					else if ( is_singular() && $rule['minor'] && $rule['minor'] == $post->post_author )
+						$condition_result = true;
+				break;
+				case 'taxonomy':
+					$term = explode( '_tax_', $rule['minor'] ); // $term[0] = taxonomy name; $term[1] = term id
+					$terms = get_the_terms( $post->ID, $rule['minor'] ); // Does post have terms in taxonomy?
+					if ( is_tax( $term[0], $term[1] ) )
+						$condition_result = true;
+					else if ( is_singular() && $term[1] && has_term( $term[1], $term[0] ) )
+						$condition_result = true;
+					else if ( is_singular() && $terms & !is_wp_error( $terms ) )
 						$condition_result = true;
 				break;
 			}
@@ -376,4 +443,4 @@ class Jetpack_Widget_Conditions {
 	}
 }
 
-add_action( 'init', array( 'Jetpack_Widget_Conditions', 'init' ) );
+add_action( 'init', array( 'FirmaSite_Widget_Conditions', 'init' ) );

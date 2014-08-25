@@ -1,10 +1,11 @@
-function firmasite_set_href(href){
-	if ( null == href )	href = "#"; 
-	return href;
-}
-
 (function() {
     tinymce.PluginManager.add('firmasitebutton', function( editor, url ) {
+
+		function firmasite_set_href(href){
+			if ( null == href )	href = "#"; 
+			return href;
+		}
+
 		
 		// New event
 		editor.on('init', function(args) {
@@ -16,7 +17,7 @@ function firmasite_set_href(href){
 			tinymce.activeEditor.formatter.register('span_class_remove_badge', {inline : 'span', classes : 'badge'});
 			tinymce.activeEditor.formatter.register('a_class', {inline : 'a', classes : '%value', attributes : {href: '%href_value'} });
 			tinymce.activeEditor.formatter.register('a_class_remove', {inline : 'a', classes : 'btn btn-default btn-warning btn-primary btn-danger btn-success btn-info'});
-			tinymce.activeEditor.formatter.register('a_class_remove_size', {inline : 'a', classes : 'btn btn-lg btn-sm btn-xs btn-block'});
+			tinymce.activeEditor.formatter.register('a_class_remove_size', {inline : 'a', classes : 'btn btn-default btn-lg btn-sm btn-xs btn-block'});
 			tinymce.activeEditor.formatter.register('div_class_remove_well', {block : 'div', classes : 'well well-sm well-lg'});
 			tinymce.activeEditor.formatter.register('div_class_modal', {block : 'div', classes : 'panel panel-default', wrapper : true, merge_siblings: false});
 			tinymce.activeEditor.formatter.register('div_class_wrapper', {block : 'div', classes : '%value', wrapper: true});
@@ -284,7 +285,7 @@ function firmasite_set_href(href){
 										e.stopPropagation();
 										tinymce.activeEditor.formatter.remove('a_class_remove');  
 										href = firmasite_set_href(tinymce.activeEditor.selection.getNode().getAttribute('href'));
-										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-primary', href_value: href});  
+										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-primary'});  
 									}       
 								},
 								{
@@ -354,26 +355,6 @@ function firmasite_set_href(href){
 									}       
 								},
 								{
-									//Mini
-									text : firmasitebutton.button_mini,
-									onclick: function(e) {
-										e.stopPropagation();
-										tinymce.activeEditor.formatter.remove('a_class_remove_size');  
-										href = firmasite_set_href(tinymce.activeEditor.selection.getNode().getAttribute('href'));
-										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-default btn-xs', href_value: href});  
-									}       
-								},
-								{
-									//Mini
-									text : firmasitebutton.button_mini,
-									onclick: function(e) {
-										e.stopPropagation();
-										tinymce.activeEditor.formatter.remove('a_class_remove_size');  
-										href = firmasite_set_href(tinymce.activeEditor.selection.getNode().getAttribute('href'));
-										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-default btn-xs', href_value: href});  
-									}       
-								},
-								{
 									//Standard
 									text : firmasitebutton.button_standard,
 									onclick: function(e) {
@@ -400,7 +381,7 @@ function firmasite_set_href(href){
 										e.stopPropagation();
 										tinymce.activeEditor.formatter.remove('a_class_remove_size');  
 										href = firmasite_set_href(tinymce.activeEditor.selection.getNode().getAttribute('href'));
-										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-default btn-block', href_value: href});  
+										tinymce.activeEditor.formatter.apply('a_class',{value : 'btn btn-default btn-lg btn-block', href_value: href});  
 									}       
 								}
 							]

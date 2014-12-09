@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.4.0
+Version: 1.4.1
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -179,6 +179,13 @@ add_filter( 'bp_get_the_profile_field_edit_value', 'firmasite_bp_textarea_allowe
 function firmasite_bp_textarea_allowedtags($field_value, $field_type){
 	if ("textarea" == $field_type) {
 		remove_filter( 'bp_get_the_profile_field_edit_value',      'esc_html' );
+	}
+	return $field_value;
+}
+add_filter( 'bp_get_the_profile_field_value', 'firmasite_bp_textarea_allowedtags_show', 1, 2 );
+function firmasite_bp_textarea_allowedtags_show($field_value, $field_type){
+	if ("textarea" == $field_type) {
+		remove_filter( 'bp_get_the_profile_field_value',           'esc_html',        8 );
 	}
 	return $field_value;
 }

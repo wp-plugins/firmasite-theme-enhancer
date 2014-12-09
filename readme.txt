@@ -1,9 +1,9 @@
 === FirmaSite Theme Enhancer ===
 Contributors: unsalkorkmaz
 Tags: theme, themes, admin, administration, css, html, link, links, editor, edit, post, posts, simple, style, TinyMCE, wysiwyg, widget
-Requires at least: 3.9
+Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.txt
 

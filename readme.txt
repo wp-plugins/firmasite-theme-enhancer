@@ -34,6 +34,10 @@ See [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_
 
 == Changelog ==
 
+= 1.4.0 =
+* Changed icon map display
+* Allow html tags in BuddyPress text area
+
 = 1.3.1 =
 * Fix for non-FirmaSite themes
 

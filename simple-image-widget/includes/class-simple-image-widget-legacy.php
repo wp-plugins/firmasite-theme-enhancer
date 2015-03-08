@@ -21,10 +21,10 @@ class FirmaSite_Simple_Image_Widget_Legacy {
 	 * @since 4.0.0
 	 */
 	public function load() {
-		add_filter( 'FirmaSite_Simple_Image_Widget_output', array( $this, 'output' ), 10, 4 );
-		add_filter( 'FirmaSite_Simple_Image_Widget_fields', array( $this, 'fields' ), 10, 2 );
-		add_action( 'FirmaSite_Simple_Image_Widget_field-legacy', array( $this, 'display_fields' ), 10, 2 );
-		add_filter( 'FirmaSite_Simple_Image_Widget_instance', array( $this, 'sanitize_data' ), 10, 4 );
+		add_filter( 'simple_image_widget_output', array( $this, 'output' ), 10, 4 );
+		add_filter( 'simple_image_widget_fields', array( $this, 'fields' ), 10, 2 );
+		add_action( 'simple_image_widget_field-legacy', array( $this, 'display_fields' ), 10, 2 );
+		add_filter( 'simple_image_widget_instance', array( $this, 'sanitize_data' ), 10, 4 );
 	}
 
 	/**
@@ -78,7 +78,7 @@ class FirmaSite_Simple_Image_Widget_Legacy {
 	 * @return array
 	 */
 	public function fields( $fields, $id_base ) {
-		if ( 'simpleimage' == $id_base && is_FirmaSite_Simple_Image_Widget_legacy() ) {
+		if ( 'simpleimage' == $id_base && is_simple_image_widget_legacy() ) {
 			$key = array_search( 'image_size', $fields );
 			if ( false !== $key ) {
 				unset( $fields[ $key ] );
@@ -100,10 +100,10 @@ class FirmaSite_Simple_Image_Widget_Legacy {
 	 * @param WP_Widget $widget   Widget instance.
 	 */
 	public function display_fields( $instance, $widget ) {
-		if ( is_FirmaSite_Simple_Image_Widget_legacy() || ! empty( $instance['image'] ) ) :
+		if ( is_simple_image_widget_legacy() || ! empty( $instance['image'] ) ) :
 			?>
 			<div class="simple-image-widget-legacy-fields">
-				<?php if ( ! is_FirmaSite_Simple_Image_Widget_legacy() ) : ?>
+				<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 					<p>
 						<em><?php _e( 'These fields are here to maintain your data from an earlier version.', "firmasite-theme-enhancer" ); ?></em>
 					</p>

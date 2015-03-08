@@ -72,9 +72,11 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 	 * @param array $instance The widget instance settings.
 	 */
 	public function widget( $args, $instance ) {
-		$cache = (array) wp_cache_get( 'FirmaSite_Simple_Image_Widget', 'widget' );
-		if ( ! $this->is_preview() && isset( $cache[ $this->id ] ) ) {
-			echo $cache[ $this->id ];
+		$cache    = (array) wp_cache_get( 'simple_image_widget', 'widget' );
+		$cache_id = $this->siw_get_cache_key( $args, $instance );
+
+		if ( ! $this->is_preview() && isset( $cache[ $cache_id ] ) ) {
+			echo $cache[ $cache_id ];
 			return;
 		}
 
@@ -128,8 +130,8 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 		echo $output;
 
 		if ( ! $this->is_preview() ) {
-			$cache[ $this->id ] = $output;
-			wp_cache_set( 'FirmaSite_Simple_Image_Widget', array_filter( $cache ), 'widget' );
+			$cache[ $cache_id ] = $output;
+			wp_cache_set( 'simple_image_widget', array_filter( $cache ), 'widget' );
 		}
 	}
 
@@ -161,7 +163,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 		 * @param array  $instance The widget instance settings.
 		 * @param string $id_base  Widget type id.
 		 */
-		$inside = apply_filters( 'FirmaSite_Simple_Image_Widget_output', '', $args, $instance, $this->id_base );
+		$inside = apply_filters( 'simple_image_widget_output', '', $args, $instance, $this->id_base );
 
 		if ( $inside ) {
 			$output .= $inside;
@@ -170,10 +172,10 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 			$data['args'] = $args;
 			$data['after_title'] = $args['after_title'];
 			$data['before_title'] = $args['before_title'];
-			$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'FirmaSite_Simple_Image_Widget_output_default_size', 'medium', $this->id_base );
+			$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
 			$data['title'] = ( empty( $instance['title'] ) ) ? '' : $instance['title'];
 			$data = array_merge( $instance, $data );
-			$data = apply_filters( 'FirmaSite_Simple_Image_Widget_template_data', $data );
+			$data = apply_filters( 'simple_image_widget_template_data', $data );
 
 			ob_start();
 			$templates = $this->get_template_names( $args, $instance );
@@ -231,7 +233,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 		 * @param array  $fields  List of field ids.
 		 * @param string $id_base Widget type id.
 		 */
-		$fields = (array) apply_filters( 'FirmaSite_Simple_Image_Widget_fields', $this->form_fields(), $this->id_base );
+		$fields = (array) apply_filters( 'simple_image_widget_fields', $this->form_fields(), $this->id_base );
 		?>
 
 		<div class="simple-image-widget-form">
@@ -245,7 +247,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 			 * @param array  $instance The widget setttings.
 			 * @param string $id_base  Widget type id.
 			 */
-			do_action( 'FirmaSite_Simple_Image_Widget_form_before', $instance, $this->id_base );
+			do_action( 'simple_image_widget_form_before', $instance, $this->id_base );
 			?>
 
 			<p>
@@ -253,7 +255,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 				<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
 			</p>
 
-			<?php if ( ! is_FirmaSite_Simple_Image_Widget_legacy() ) : ?>
+			<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 				<p class="simple-image-widget-control<?php echo ( $image_id ) ? ' has-image' : ''; ?>"
 					data-title="<?php esc_attr_e( 'Choose an Image', "firmasite-theme-enhancer" ); ?>"
 					data-update-text="<?php esc_attr_e( 'Update Image', "firmasite-theme-enhancer" ); ?>"
@@ -298,7 +300,10 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 							?>
 							<p class="<?php echo esc_attr( $this->siw_field_class( 'link' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>"><?php _e( 'Link:', "firmasite-theme-enhancer" ); ?></label>
-								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
+								<span class="simple-image-widget-input-group">
+									<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="simple-image-widget-input-group-field">
+									<button class="simple-image-widget-find-posts-button simple-image-widget-input-group-button dashicons dashicons-search"></button>
+								</span>
 							</p>
 							<p class="<?php echo esc_attr( $this->siw_field_class( 'new_window' ) ); ?>" style="margin-top: -0.75em; padding-left: 2px">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>">
@@ -341,7 +346,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 							 * Display a custom field.
 							 *
 							 * This action will fire for custom fields
-							 * registered with the 'FirmaSite_Simple_Image_Widget_fields'
+							 * registered with the 'simple_image_widget_fields'
 							 * filter.
 							 *
 							 * @since 3.0.0
@@ -349,7 +354,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 							 * @param array  $instance The widget setttings.
 							 * @param string $widget   Widget instance.
 							 */
-							do_action( 'FirmaSite_Simple_Image_Widget_field-' . sanitize_key( $field ), $instance, $this );
+							do_action( 'simple_image_widget_field-' . sanitize_key( $field ), $instance, $this );
 					}
 				}
 			}
@@ -362,7 +367,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 			 * @param array  $instance The widget setttings.
 			 * @param string $id_base  Widget type id.
 			 */
-			do_action( 'FirmaSite_Simple_Image_Widget_form_after', $instance, $this->id_base );
+			do_action( 'simple_image_widget_form_after', $instance, $this->id_base );
 			?>
 
 		</div><!-- /.simple-image-widget-form -->
@@ -394,7 +399,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = wp_parse_args( $new_instance, $old_instance );
 
-		$instance = apply_filters( 'FirmaSite_Simple_Image_Widget_instance', $instance, $new_instance, $old_instance, $this->id_base );
+		$instance = apply_filters( 'simple_image_widget_instance', $instance, $new_instance, $old_instance, $this->id_base );
 
 		$instance['title']      = wp_strip_all_tags( $new_instance['title'] );
 		$instance['image_id']   = absint( $new_instance['image_id'] );
@@ -422,7 +427,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 			}
 		}
 
-		$this->flush_widget_cache();
+		$this->flush_group_cache();
 
 		return $instance;
 	}
@@ -474,21 +479,6 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Remove a single image widget from the cache.
-	 *
-	 * @since 3.0.0
-	 */
-	public function flush_widget_cache() {
-		$cache = (array) wp_cache_get( 'FirmaSite_Simple_Image_Widget', 'widget' );
-
-		if ( isset( $cache[ $this->id ] ) ) {
-			unset( $cache[ $this->id ] );
-		}
-
-		wp_cache_set( 'FirmaSite_Simple_Image_Widget', array_filter( $cache ), 'widget' );
-	}
-
-	/**
 	 * Flush the cache for all image widgets.
 	 *
 	 * @since 3.0.0
@@ -500,7 +490,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 			return;
 		}
 
-		wp_cache_delete( 'FirmaSite_Simple_Image_Widget', 'widget' );
+		wp_cache_delete( 'simple_image_widget', 'widget' );
 	}
 
 	/**
@@ -532,7 +522,7 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 		 * @param string $id_base  Widget type id.
 		 */
 		return apply_filters(
-			'FirmaSite_Simple_Image_Widget_templates',
+			'simple_image_widget_templates',
 			$templates,
 			$args,
 			$instance,
@@ -558,4 +548,28 @@ class FirmaSite_Simple_Image_Widget extends WP_Widget {
 
 		return implode( ' ', $classes );
 	}
+
+	/**
+	 * Retrieve a cache key based on a hash of passed parameters.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @return string
+	 */
+	protected function siw_get_cache_key() {
+		$data = array();
+		foreach ( func_get_args() as $arg ) {
+			$data = array_merge( $data, (array) $arg );
+		}
+		ksort( $data );
+		return 'siw_' . md5( json_encode( $data ) );
+	}
+
+	/**
+	 * Remove a single image widget from the cache.
+	 *
+	 * @since 3.0.0
+	 * @deprecated 4.2.0
+	 */
+	public function flush_widget_cache() {}
 }

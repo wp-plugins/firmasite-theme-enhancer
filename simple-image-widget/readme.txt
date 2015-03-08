@@ -2,7 +2,7 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.5
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,8 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 
 * Finnish (fi) - Tomi Mäenpää [v4.1.1]
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
+* Japanese (ja) - Fumito Mizuno [v4.2.0]
+* Serbo-Croation (sr_RS) - [Borisa Djuraskovic](http://www.webhostinghub.com/) [v4.1.2]
 
 == Installation ==
 
@@ -38,7 +40,7 @@ Install just like most other plugins. [Check out the codex](http://codex.wordpre
 
 = Is there a way to filter the widget output? =
 
-Absolutely. Changing the output can be done a few different ways, but the most common alternatives involve using the "`FirmaSite_Simple_Image_Widget_output`" filter or overriding the template in your theme.
+Absolutely. Changing the output can be done a few different ways, but the most common alternatives involve using the "`simple_image_widget_output`" filter or overriding the template in your theme.
 
 To use the template method, copy "`widget.php`" from the "`/templates`" directory in the plugin to a "`/simple-image-widget`" directory in your theme. Then update as you wish. It's also possible to create a custom template specific to each sidebar in your theme using the following default template hierarchy:
 
@@ -75,6 +77,19 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.2.1 =
+* Fixed a PHP 5.2 incompatibility that prevented the correct image from showing on the front-end.
+* Fixed a debug notice when searching for attachments in the new find posts modal.
+
+= 4.2.0 =
+* Added functionality to search for posts to link images to.
+* Added Japanese translation.
+* Changed the method for generating cache keys. Should provide better support for the_widget() and similar methods.
+* Deprecated the method for flushing a single widget instance from the cache.
+
+= 4.1.2 =
+* Added Serbo-Croation translation.
 
 = 4.1.1 =
 * Added Finnish translation.

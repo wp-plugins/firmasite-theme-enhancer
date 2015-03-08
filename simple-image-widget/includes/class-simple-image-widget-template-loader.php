@@ -30,7 +30,7 @@ class FirmaSite_Simple_Image_Widget_Template_Loader {
 	 *
 	 * @type string
 	 */
-	protected $filter_prefix = 'FirmaSite_Simple_Image_Widget';
+	protected $filter_prefix = 'simple_image_widget';
 
 	/**
 	 * Directory name where custom templates for this plugin should be found in

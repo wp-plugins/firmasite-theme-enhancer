@@ -14,9 +14,9 @@
  * Main plugin instance.
  *
  * @since 4.0.0
- * @type FirmaSite_Simple_Image_Widget $FirmaSite_Simple_Image_Widget
+ * @type FirmaSite_Simple_Image_Widget $simple_image_widget
  */
-global $FirmaSite_Simple_Image_Widget;
+global $simple_image_widget;
 
 if ( ! defined( 'SIW_DIR' ) ) {
 	/**
@@ -33,7 +33,7 @@ if ( ! defined( 'SIW_DIR' ) ) {
  *
  * @since 3.0.0
  */
-function is_FirmaSite_Simple_Image_Widget_legacy() {
+function is_simple_image_widget_legacy() {
 	/**
 	 * Whether the installed version of WordPress supports the new media manager.
 	 *
@@ -41,7 +41,7 @@ function is_FirmaSite_Simple_Image_Widget_legacy() {
 	 *
 	 * @param bool $is_legacy
 	 */
-	return apply_filters( 'is_FirmaSite_Simple_Image_Widget_legacy', version_compare( get_bloginfo( 'version' ), '3.4.2', '<=' ) );
+	return apply_filters( 'is_simple_image_widget_legacy', version_compare( get_bloginfo( 'version' ), '3.4.2', '<=' ) );
 }
 
 /**
@@ -61,5 +61,5 @@ require_once( SIW_DIR . 'includes/class-simple-image-widget-template-loader.php'
 class FirmaSite_Simple_Image_Widget_Loader extends FirmaSite_Simple_Image_Widget_Plugin {}
 
 // Initialize and load the plugin.
-$FirmaSite_Simple_Image_Widget = new FirmaSite_Simple_Image_Widget_Plugin();
-add_action( 'plugins_loaded', array( $FirmaSite_Simple_Image_Widget, 'load' ) );
+$simple_image_widget = new FirmaSite_Simple_Image_Widget_Plugin();
+add_action( 'plugins_loaded', array( $simple_image_widget, 'load' ) );

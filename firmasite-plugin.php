@@ -3,7 +3,7 @@
 Plugin Name: FirmaSite Theme Enhancer
 Plugin URI: http://firmasite.com
 Description: This plugin provides new features to themes. Twitter Bootstrap design elements, custom editor buttons and more..
-Version: 1.4.1
+Version: 1.5.0
 Author: Ünsal Korkmaz
 Author URI: http://unsalkorkmaz.com
 License: GPLv3 or later
@@ -56,29 +56,29 @@ function firmasite_plugin_setup() {
 		
 		// bootstrapcdn.com
 		$firmasite_settings["styles_url"] = apply_filters( 'firmasite_theme_styles_url', array(		
-			"amelia" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/amelia",		
-			"cerulean" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cerulean",	
-			"cosmo" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo",			
-			"cyborg" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cyborg",		
-			"darkly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/darkly",		
-			"default" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/default",		
-			"flatly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly",		
-			"journal" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/journal",		
-			"lumen" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/lumen",		
-			"paper" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/paper",		
-			"readable" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/readable",	
-			"sandstone" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone",	
-			"simplex" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex",		
-			"slate" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate",			
-			"spacelab" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/spacelab",	
-			"superhero" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero",	
-			"united" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/united",		
-			"yeti" => "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti",		
+			"amelia" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/amelia",		
+			"cerulean" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cerulean",	
+			"cosmo" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cosmo",			
+			"cyborg" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cyborg",		
+			"darkly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/darkly",		
+			"default" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/default",		
+			"flatly" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly",		
+			"journal" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/journal",		
+			"lumen" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/lumen",		
+			"paper" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/paper",		
+			"readable" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/readable",	
+			"sandstone" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/sandstone",	
+			"simplex" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/simplex",		
+			"slate" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/slate",			
+			"spacelab" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/spacelab",	
+			"superhero" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero",	
+			"united" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/united",		
+			"yeti" => "//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/yeti",		
 		));
 		
 		//jquery
 		wp_deregister_script( 'jquery-core' );
-		wp_register_script( 'jquery-core', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1');
+		wp_register_script( 'jquery-core', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', array(), '1.11.2');
 		wp_deregister_script( 'jquery-migrate' );
 		wp_register_script( 'jquery-migrate', 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', array(), '1.2.1');
 	}	
@@ -227,14 +227,14 @@ function firmasite_plugin_language_init() {
 	 * to
 	"firmasite-theme-enhancer"
 
-	 * replaced:
+	 * replaced with MATCH CASE:
 	 Simple_Image_Widget
 	 * to
 	 FirmaSite_Simple_Image_Widget
 	 */
 	if ( !class_exists( 'Simple_Image_Widget' ) ) {
-		include_once ('simple-image-widget/simple-image-widget.php');			
-		add_action( 'plugins_loaded', array( $FirmaSite_Simple_Image_Widget, 'load' ), 901 );
+		include ('simple-image-widget/simple-image-widget.php');			
+		add_action( 'plugins_loaded', array( $simple_image_widget, 'load' ), 901 );
 	}
 		
 
